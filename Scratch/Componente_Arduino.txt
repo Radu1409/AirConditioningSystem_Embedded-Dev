@@ -1,0 +1,16 @@
+Servo-motor:
+	TowerPro SG90 da 
+	Hitec HS-422
+Clapete de aer din plastic:
+	ABS
+	PVC
+Ventilator axial:
+	12 cm 450RPM
+	12cm 1200RPM
+Tranzistor NPN:
+	2n2222
+	bc547 da
+Interfata de diagnoza OBD:
+	ELM327
+Interfata user:
+	seeed studio 3.5 tft touchscreen arduino 

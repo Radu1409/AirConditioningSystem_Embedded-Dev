@@ -1,0 +1,3 @@
+@echo off
+mode COM6 BAUD=9600 PARITY=n DATA=8 STOP=1
+type COM6
