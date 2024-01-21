@@ -128,7 +128,3 @@ void Logger::printDigits(int digits, bool leadingZero) {
     Serial.print('0');
   Serial.print(digits);
 }
-//void Logger::printDigits(int digits) {
-//  Serial.print(digits < 10 ? '0' : ' ');
-//  Serial.print(digits);
-//}
