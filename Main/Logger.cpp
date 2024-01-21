@@ -4,7 +4,6 @@
 Logger* Logger::instance = nullptr; // Inițializare instanță la nullptr
 Logger* Logger::logger = nullptr; // Inițializare instanță logger la nullptr
 
-
 Logger::Logger() {
   if (!rtc.begin()) {
     Serial.println("Couldn't find RTC");
@@ -24,29 +23,6 @@ Logger* Logger::getInstance() {
   }
   return instance;
 }
-
-
-//void Logger::logInfo(const char* message) {
-//  printTimestamp();
-//  Serial.print("[\033[32mINFO\033[0m] "); // Verde
-//  Serial.println(message);
-//  delay(2000);
-//}
-//
-//void Logger::logWarning(const char* message) {
-//  printTimestamp();
-//  Serial.print("[\033[33mWARNING\033[0m] "); // Galben
-//  Serial.println(message);
-//  delay(2000);
-//}
-//
-//void Logger::logError(const char* message) {
-//  printTimestamp();
-//  Serial.print("[\033[31mERROR\033[0m] "); // Roșu
-//  Serial.println(message);
-//  delay(2000);
-//}
-
 
 void Logger::logInfo(const char* message) {
   logFormat("[\033[32mINFO\033[0m]", " %s", message);
@@ -74,19 +50,6 @@ void Logger::logFormat(const char* level, const char* format, ...) {
   delay(2000);
 }
 
-//void Logger::logInfoFormat(const char* format, ...) {
-//  printTimestamp();
-//
-//  char buffer[256]; // Alocare unui buffer suficient de mare
-//  va_list args;
-//  va_start(args, format);
-//  vsnprintf(buffer, sizeof(buffer), format, args);
-//  va_end(args);
-//
-//  Serial.print("[\033[32mINFO\033[0m] "); // Verde
-//  Serial.println(buffer);
-//  delay(2000);
-//}
 void Logger::logInfoFormat(const char* format, ...) {
   printTimestamp();
 
@@ -125,33 +88,6 @@ void Logger::logInfoFormat(const char* format, ...) {
   va_end(args);
   delay(2000);
 }
-
-
-//void Logger::printTimestamp() {
-//  unsigned long currentMillis = millis();
-//  unsigned long seconds = currentMillis / 1000;
-//  unsigned long minutes = seconds / 60;
-//  unsigned long hours = minutes / 60;
-//
-//  Serial.print("[");
-//  Serial.print(hours % 24); // Afișează orele în format 24 de ore
-//  Serial.print(":");
-//  Serial.print(minutes % 60);
-//  Serial.print(":");
-//  Serial.print(seconds % 60);
-//  Serial.print("] ");
-//}
-
-//void Logger::printTimestamp() {
-//  DateTime now = rtc.now();
-//  Serial.print("[");
-//  Serial.print(now.year(), DEC);
-//  Serial.print(":");
-//  printDigits(now.month());
-//  Serial.print(":");
-//  printDigits(now.day());
-//  Serial.print("] ");
-//}
 
 void Logger::printMonthAbbreviation(int month) {
   // Verifică valabilitatea lunii
